@@ -1,0 +1,17 @@
+{
+    "name": "hexlet/code",
+    "description": "learning project",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Hexlet\\Code\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Eduard Kichigin"
+        }
+    ],
+    "require": {}
+}
