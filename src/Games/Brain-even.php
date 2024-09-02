@@ -1,15 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 namespace BrainGames\BrainEvenven;
 
+use function BrainGames\Engine\greet;
 use function cli\line;
 use function cli\prompt;
 
 function runBrainEvenGame(): void
 {
-    line('Welcome to the Brain Games!');
-    $name = prompt('May I have your name?', null, ': ');
-    line("Hello, %s!", $name);
+    $name = greet();
+
     line('Answer "yes" if the number is even, otherwise answer "no".');
 
     $correctAnswersCount = 0;

@@ -6,7 +6,9 @@
     "autoload": {
         "files": [
             "src/Cli.php",
-            "src/Brain-even.php"
+            "src/Games/Brain-even.php",
+            "src/Games/Brain-calc.php",
+            "src/Engine.php"
         ]
     },
     "authors": [
