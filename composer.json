@@ -9,6 +9,7 @@
             "src/Games/Brain-even.php",
             "src/Games/Brain-calc.php",
             "src/Games/Brain-gcd.php",
+            "src/Games/Brain-progression.php",
             "src/Engine.php"
         ]
     },

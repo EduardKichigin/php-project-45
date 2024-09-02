@@ -9,3 +9,4 @@ ASCIINEMA
 brain-even https://asciinema.org/connect/f58e5359-e067-4794-bffc-a66eadcb3c98
 brain-calc https://asciinema.org/a/PATrHOU8M81PwVombai6Unryp
 brain-gcd https://asciinema.org/a/T3ARRT5waLLbq0pQwUQXuOk9H
+brain-progression https://asciinema.org/a/bD0AgPHLYmQBfGD5OTdNGAWbz
