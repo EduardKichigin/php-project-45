@@ -10,6 +10,7 @@
             "src/Games/Brain-calc.php",
             "src/Games/Brain-gcd.php",
             "src/Games/Brain-progression.php",
+            "src/Games/Brain-prime.php",
             "src/Engine.php"
         ]
     },

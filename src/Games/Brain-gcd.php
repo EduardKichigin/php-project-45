@@ -9,23 +9,6 @@ use function BrainGames\Engine\wrongAnswer;
 use function cli\line;
 use function cli\prompt;
 
-/**
- * Функция для вычисления наибольшего общего делителя (НОД) двух чисел
- *
- * @param int $a Первое число
- * @param int $b Второе число
- * @return int НОД двух чисел
- */
-function gcd(int $a, int $b): int
-{
-    while ($b !== 0) {
-        $temp = $b;
-        $b = $a % $b;
-        $a = $temp;
-    }
-    return $a;
-}
-
 function runBrainGcdGame(): void
 {
     $name = greet();
@@ -58,4 +41,21 @@ function runBrainGcdGame(): void
     }
 
     line("Congratulations, %s!", $name);
+}
+
+/**
+ * Функция для вычисления наибольшего общего делителя (НОД) двух чисел
+ *
+ * @param int $a Первое число
+ * @param int $b Второе число
+ * @return int НОД двух чисел
+ */
+function gcd(int $a, int $b): int
+{
+    while ($b !== 0) {
+        $temp = $b;
+        $b = $a % $b;
+        $a = $temp;
+    }
+    return $a;
 }

@@ -20,3 +20,6 @@ brain-gcd:
 
 brain-progression:
 	php ./bin/brain-progression.php
+
+brain-prime:
+	php ./bin/brain-prime.php
