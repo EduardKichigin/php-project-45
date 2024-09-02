@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace BrainGames\BrainEvenven;
 
 use function BrainGames\Engine\greet;
+use function BrainGames\Engine\wrongAnswer;
 use function cli\line;
 use function cli\prompt;
 
@@ -19,16 +20,15 @@ function runBrainEvenGame(): void
     while ($correctAnswersCount < 3) {
         $number = rand(1, 100);
         line("Question: %d", $number);
-        $answer = prompt('Your answer');
+        $userAnswer = prompt('Your answer');
 
         $correctAnswer = $number % 2 === 0 ? 'yes' : 'no';
 
-        if ($answer === $correctAnswer) {
+        if ($userAnswer === $correctAnswer) {
             line('Correct!');
             $correctAnswersCount++;
         } else {
-            line("'%s' is wrong answer ;(. Correct answer was '%s'.", $answer, $correctAnswer);
-            line("Let's try again, %s!", $name);
+            wrongAnswer($userAnswer, $correctAnswer, $name);
             return;
         }
     }

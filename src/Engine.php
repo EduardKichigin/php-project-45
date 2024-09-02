@@ -15,3 +15,9 @@ function greet(): string
 
     return $name;
 }
+
+function wrongAnswer(string $userAnswer, string|int $correctAnswer, string $name): void
+{
+    line("'%s' is wrong answer ;(. Correct answer was '%s'.", $userAnswer, $correctAnswer);
+    line("Let's try again, %s!", $name);
+}

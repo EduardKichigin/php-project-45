@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace BrainGames\BrainGCD;
 
 use function BrainGames\Engine\greet;
+use function BrainGames\Engine\wrongAnswer;
 use function cli\line;
 use function cli\prompt;
 
@@ -51,8 +52,7 @@ function runBrainGcdGame(): void
             line('Correct!');
             $correctAnswersCount++;
         } else {
-            line("'%s' is wrong answer ;(. Correct answer was '%d'.", $userAnswer, $correctAnswer);
-            line("Let's try again, %s!", $name);
+            wrongAnswer($userAnswer, $correctAnswer, $name);
             return;
         }
     }
