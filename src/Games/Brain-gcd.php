@@ -53,7 +53,7 @@ function gcd(int $a, int $b): int
 }
 
 /**
- * @return array Массив из двух случайных чисел
+ * @return int[] Массив из двух случайных чисел
  */
 function generateQuestion(): array
 {

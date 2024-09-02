@@ -49,7 +49,7 @@ function runBrainProgressionGame(): void
  * @param int $start Начальное число прогрессии
  * @param int $step Шаг прогрессии
  * @param int $length Длина прогрессии
- * @return array Сгенерированная арифметическая прогрессия
+ * @return int[] Сгенерированная арифметическая прогрессия
  */
 function generateProgression(int $start, int $step, int $length): array
 {
