@@ -8,6 +8,7 @@
             "src/Cli.php",
             "src/Games/Brain-even.php",
             "src/Games/Brain-calc.php",
+            "src/Games/Brain-gcd.php",
             "src/Engine.php"
         ]
     },
