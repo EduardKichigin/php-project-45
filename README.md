@@ -6,13 +6,20 @@
 
 ## Setup
 
+```bash
 git clone git@github.com:EduardKichigin/php-project-45.git
-make install
 
-## ASCIINEMA
+make install
+```
+
+## Asciinema
 
 brain-even https://asciinema.org/connect/f58e5359-e067-4794-bffc-a66eadcb3c98
+
 brain-calc https://asciinema.org/a/PATrHOU8M81PwVombai6Unryp
+
 brain-gcd https://asciinema.org/a/T3ARRT5waLLbq0pQwUQXuOk9H
+
 brain-progression https://asciinema.org/a/bD0AgPHLYmQBfGD5OTdNGAWbz
+
 brain-prime https://asciinema.org/a/xU7IEghxUf4AX3jS35QO5show
