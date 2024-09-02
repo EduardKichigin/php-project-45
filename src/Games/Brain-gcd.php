@@ -12,24 +12,16 @@ use function cli\prompt;
 function runBrainGcdGame(): void
 {
     $name = greet();
-
     line('Find the greatest common divisor of given numbers.');
 
     $correctAnswersCount = 0;
 
     while ($correctAnswersCount < 3) {
-        $num1 = rand(1, 100);
-        $num2 = rand(1, 100);
-
-        if ($num1 < $num2) {
-            [$num1, $num2] = [$num2, $num1];
-        }
-
-        $question = sprintf('%d %d', $num1, $num2);
-        line("Question: %s", $question);
-        $userAnswer = prompt('Your answer');
-
+        [$num1, $num2] = generateQuestion();
         $correctAnswer = gcd($num1, $num2);
+
+        line("Question: %d %d", $num1, $num2);
+        $userAnswer = prompt('Your answer');
 
         if ((int)$userAnswer === $correctAnswer) {
             line('Correct!');
@@ -58,4 +50,19 @@ function gcd(int $a, int $b): int
         $a = $temp;
     }
     return $a;
+}
+
+/**
+ * @return array Массив из двух случайных чисел
+ */
+function generateQuestion(): array
+{
+    $num1 = rand(1, 100);
+    $num2 = rand(1, 100);
+
+    if ($num1 < $num2) {
+        [$num1, $num2] = [$num2, $num1];
+    }
+
+    return [$num1, $num2];
 }
