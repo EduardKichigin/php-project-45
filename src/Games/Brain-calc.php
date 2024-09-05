@@ -6,6 +6,9 @@ namespace BrainGames\BrainCalc;
 
 use function BrainGames\Engine\runGame;
 
+/**
+ * @return array{question: string, answer: ?int}
+ */
 function generateCalcQuestionAndAnswer(): array
 {
     $num1 = rand(1, 100);
@@ -27,11 +30,12 @@ function runBrainCalcGame(): void
     });
 }
 
-function calculateCorrectAnswer(int $num1, int $num2, string $operator): int
+function calculateCorrectAnswer(int $num1, int $num2, string $operator): ?int
 {
     return match ($operator) {
         '+' => $num1 + $num2,
         '-' => $num1 - $num2,
         '*' => $num1 * $num2,
+        default => null
     };
 }

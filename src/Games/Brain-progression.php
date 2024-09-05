@@ -6,6 +6,9 @@ namespace BrainGames\BrainProgression;
 
 use function BrainGames\Engine\runGame;
 
+/**
+ * @return array{question: string, answer: int}
+ */
 function generateProgressionQuestionAndAnswer(): array
 {
     $start = rand(1, 10);

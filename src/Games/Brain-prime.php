@@ -6,6 +6,9 @@ namespace BrainGames\BrainPrime;
 
 use function BrainGames\Engine\runGame;
 
+/**
+ * @return array{question: int, answer: int}
+ */
 function generatePrimeQuestionAndAnswer(): array
 {
     $number = rand(1, 100);

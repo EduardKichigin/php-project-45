@@ -22,7 +22,7 @@ function runGame(string $description, callable $generateQuestionAndAnswer): void
         line("Question: %s", $question);
         $userAnswer = prompt('Your answer');
 
-        if ((string)$userAnswer === (string)$correctAnswer) {
+        if ($userAnswer === (string)$correctAnswer) {
             line('Correct!');
             $correctAnswersCount++;
         } else {

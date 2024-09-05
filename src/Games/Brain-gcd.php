@@ -6,6 +6,9 @@ namespace BrainGames\BrainGCD;
 
 use function BrainGames\Engine\runGame;
 
+/**
+ * @return array{question: string, answer: int}
+ */
 function generateGcdQuestionAndAnswer(): array
 {
     [$num1, $num2] = generateQuestion();

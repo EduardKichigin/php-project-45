@@ -6,6 +6,9 @@ namespace BrainGames\BrainEvenven;
 
 use function BrainGames\Engine\runGame;
 
+/**
+ * @return array{question: int, answer: string}
+ */
 function generateEvenQuestionAndAnswer(): array
 {
     $number = rand(1, 100);
