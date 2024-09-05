@@ -4,43 +4,31 @@ declare(strict_types=1);
 
 namespace BrainGames\BrainProgression;
 
-use function BrainGames\Engine\greet;
-use function BrainGames\Engine\wrongAnswer;
-use function cli\line;
-use function cli\prompt;
+use function BrainGames\Engine\runGame;
+
+function generateProgressionQuestionAndAnswer(): array
+{
+    $start = rand(1, 10);
+    $step = rand(1, 10);
+    $length = rand(5, 10);
+
+    $progression = generateProgression($start, $step, $length);
+
+    $hiddenPosition = rand(0, $length - 1);
+    $correctAnswer = $progression[$hiddenPosition];
+    $progression[$hiddenPosition] = '..';
+
+    $question = implode(' ', $progression);
+
+    return [$question, $correctAnswer];
+}
 
 function runBrainProgressionGame(): void
 {
-    $name = greet();
-
-    line('What number is missing in the progression?');
-
-    $correctAnswersCount = 0;
-
-    while ($correctAnswersCount < 3) {
-        $start = rand(1, 10);
-        $step = rand(1, 10);
-        $length = rand(5, 10);
-
-        $progression = generateProgression($start, $step, $length);
-
-        $hiddenPosition = rand(0, $length - 1);
-        $correctAnswer = $progression[$hiddenPosition];
-        $progression[$hiddenPosition] = '..';
-
-        line("Question: %s", implode(' ', $progression));
-        $userAnswer = prompt('Your answer');
-
-        if ((int)$userAnswer === $correctAnswer) {
-            line('Correct!');
-            $correctAnswersCount++;
-        } else {
-            wrongAnswer($userAnswer, $correctAnswer, $name);
-            return;
-        }
-    }
-
-    line("Congratulations, %s!", $name);
+    $description = 'What number is missing in the progression?';
+    runGame($description, function () {
+        return generateProgressionQuestionAndAnswer();
+    });
 }
 
 /**

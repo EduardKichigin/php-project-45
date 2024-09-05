@@ -7,13 +7,31 @@ namespace BrainGames\Engine;
 use function cli\line;
 use function cli\prompt;
 
-function greet(): string
+function runGame(string $description, callable $generateQuestionAndAnswer): void
 {
     line('Welcome to the Brain Games!');
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
+    line($description);
 
-    return $name;
+    $correctAnswersCount = 0;
+
+    while ($correctAnswersCount < 3) {
+        [$question, $correctAnswer] = $generateQuestionAndAnswer();
+
+        line("Question: %s", $question);
+        $userAnswer = prompt('Your answer');
+
+        if ((string)$userAnswer === (string)$correctAnswer) {
+            line('Correct!');
+            $correctAnswersCount++;
+        } else {
+            wrongAnswer($userAnswer, $correctAnswer, $name);
+            return;
+        }
+    }
+
+    line("Congratulations, %s!", $name);
 }
 
 function wrongAnswer(string $userAnswer, string|int $correctAnswer, string $name): void

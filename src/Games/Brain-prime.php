@@ -4,36 +4,23 @@ declare(strict_types=1);
 
 namespace BrainGames\BrainPrime;
 
-use function BrainGames\Engine\greet;
-use function BrainGames\Engine\wrongAnswer;
-use function cli\line;
-use function cli\prompt;
+use function BrainGames\Engine\runGame;
+
+function generatePrimeQuestionAndAnswer(): array
+{
+    $number = rand(1, 100);
+    $question = $number;
+    $correctAnswer = isPrime($number) ? 'yes' : 'no';
+
+    return [$question, $correctAnswer];
+}
 
 function runBrainPrimeGame(): void
 {
-    $name = greet();
-
-    line('Answer "yes" if given number is prime. Otherwise answer "no".');
-
-    $correctAnswersCount = 0;
-
-    while ($correctAnswersCount < 3) {
-        $number = rand(1, 100);
-        line("Question: %d", $number);
-        $userAnswer = prompt('Your answer');
-
-        $correctAnswer = isPrime($number) ? 'yes' : 'no';
-
-        if ($userAnswer === $correctAnswer) {
-            line('Correct!');
-            $correctAnswersCount++;
-        } else {
-            wrongAnswer($userAnswer, $correctAnswer, $name);
-            return;
-        }
-    }
-
-    line("Congratulations, %s!", $name);
+    $description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+    runGame($description, function () {
+        return generatePrimeQuestionAndAnswer();
+    });
 }
 
 /**

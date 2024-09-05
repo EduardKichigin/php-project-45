@@ -4,35 +4,23 @@ declare(strict_types=1);
 
 namespace BrainGames\BrainGCD;
 
-use function BrainGames\Engine\greet;
-use function BrainGames\Engine\wrongAnswer;
-use function cli\line;
-use function cli\prompt;
+use function BrainGames\Engine\runGame;
+
+function generateGcdQuestionAndAnswer(): array
+{
+    [$num1, $num2] = generateQuestion();
+    $question = "$num1 $num2";
+    $correctAnswer = gcd($num1, $num2);
+
+    return [$question, $correctAnswer];
+}
 
 function runBrainGcdGame(): void
 {
-    $name = greet();
-    line('Find the greatest common divisor of given numbers.');
-
-    $correctAnswersCount = 0;
-
-    while ($correctAnswersCount < 3) {
-        [$num1, $num2] = generateQuestion();
-        $correctAnswer = gcd($num1, $num2);
-
-        line("Question: %d %d", $num1, $num2);
-        $userAnswer = prompt('Your answer');
-
-        if ((int)$userAnswer === $correctAnswer) {
-            line('Correct!');
-            $correctAnswersCount++;
-        } else {
-            wrongAnswer($userAnswer, $correctAnswer, $name);
-            return;
-        }
-    }
-
-    line("Congratulations, %s!", $name);
+    $description = 'Find the greatest common divisor of given numbers.';
+    runGame($description, function () {
+        return generateGcdQuestionAndAnswer();
+    });
 }
 
 /**
