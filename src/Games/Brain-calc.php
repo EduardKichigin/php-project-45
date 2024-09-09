@@ -19,7 +19,7 @@ function generateCalcQuestionAndAnswer(): array
     $question = sprintf('%d %s %d', $num1, $operator, $num2);
     $correctAnswer = calculateCorrectAnswer($num1, $num2, $operator);
 
-    return [$question, $correctAnswer];
+    return [$question, (string)$correctAnswer];
 }
 
 function runBrainCalcGame(): void

@@ -15,7 +15,7 @@ function generateGcdQuestionAndAnswer(): array
     $question = "$num1 $num2";
     $correctAnswer = gcd($num1, $num2);
 
-    return [$question, $correctAnswer];
+    return [$question, (string)$correctAnswer];
 }
 
 function runBrainGcdGame(): void

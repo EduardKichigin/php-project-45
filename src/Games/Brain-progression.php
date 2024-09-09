@@ -23,7 +23,7 @@ function generateProgressionQuestionAndAnswer(): array
 
     $question = implode(' ', $progression);
 
-    return [$question, $correctAnswer];
+    return [$question, (string)$correctAnswer];
 }
 
 function runBrainProgressionGame(): void

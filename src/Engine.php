@@ -22,20 +22,15 @@ function runGame(string $description, callable $generateQuestionAndAnswer): void
         line("Question: %s", $question);
         $userAnswer = prompt('Your answer');
 
-        if ($userAnswer === (string)$correctAnswer) {
+        if ($userAnswer === $correctAnswer) {
             line('Correct!');
             $correctAnswersCount++;
         } else {
-            wrongAnswer($userAnswer, $correctAnswer, $name);
+            line("'%s' is wrong answer ;(. Correct answer was '%s'.", $userAnswer, $correctAnswer);
+            line("Let's try again, %s!", $name);
             return;
         }
     }
 
     line("Congratulations, %s!", $name);
-}
-
-function wrongAnswer(string $userAnswer, string|int $correctAnswer, string $name): void
-{
-    line("'%s' is wrong answer ;(. Correct answer was '%s'.", $userAnswer, $correctAnswer);
-    line("Let's try again, %s!", $name);
 }
